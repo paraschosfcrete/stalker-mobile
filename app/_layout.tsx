@@ -1,6 +1,7 @@
 import { DarkTheme, ThemeProvider } from '@react-navigation/native';
 import { Stack } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
+import { GestureHandlerRootView } from 'react-native-gesture-handler';
 import 'react-native-reanimated';
 
 export const unstable_settings = {
@@ -22,12 +23,19 @@ export default function RootLayout() {
   };
 
   return (
-    <ThemeProvider value={appTheme}>
-      <Stack>
-        <Stack.Screen name="main-menu" options={{ headerShown: false }} />
-        <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
-      </Stack>
-      <StatusBar style="light" />
-    </ThemeProvider>
+    <GestureHandlerRootView style={{ flex: 1 }}>
+      <ThemeProvider value={appTheme}>
+        <Stack>
+          <Stack.Screen name="main-menu" options={{ headerShown: false }} />
+          <Stack.Screen name="new-campaign" options={{ headerShown: false }} />
+          <Stack.Screen name="zone-navigation" options={{ headerShown: false }} />
+          <Stack.Screen name="campaign" options={{ headerShown: false }} />
+          <Stack.Screen name="stash" options={{ headerShown: false }} />
+          <Stack.Screen name="load-game" options={{ headerShown: false }} />
+          <Stack.Screen name="modal" options={{ presentation: 'modal', title: 'Modal' }} />
+        </Stack>
+        <StatusBar style="light" />
+      </ThemeProvider>
+    </GestureHandlerRootView>
   );
 }

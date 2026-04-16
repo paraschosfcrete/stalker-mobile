@@ -1,6 +1,8 @@
+import { useRouter } from "expo-router";
 import { Pressable, StyleSheet, Text, View } from "react-native";
 
 export default function MainMenu() {
+  const router = useRouter();
   return (
     <View style={styles.container}>
       <View pointerEvents="none" style={styles.hazeOne} />
@@ -19,11 +21,11 @@ export default function MainMenu() {
         <Text style={styles.sectionLabel}>Main Menu</Text>
 
         <View style={styles.buttonGroup}>
-          <Pressable onPress={() => {}} style={styles.button}>
-            <Text style={styles.buttonText}>New Campaign</Text>
+          <Pressable onPress={() => router.push("/new-campaign" as any)} style={styles.button}>
+          <Text style={styles.buttonText}>New Campaign</Text>
           </Pressable>
 
-          <Pressable onPress={() => {}} style={styles.button}>
+          <Pressable onPress={() => router.push("/load-game" as any)} style={styles.button}>
             <Text style={styles.buttonText}>Load Game</Text>
           </Pressable>
         </View>
